@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import './App.css';
 
 class App extends Component {
 
@@ -13,7 +12,7 @@ class App extends Component {
   render() {
  
     return (
-      <div className="App">
+      <div >
         <p className="App-intro"> Live Commentary </p>
         <div className="structure">
               {Object.keys(this.data).map(key => (
