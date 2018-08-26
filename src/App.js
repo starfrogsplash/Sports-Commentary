@@ -15,13 +15,47 @@ class App extends Component {
     return (
       <div className="App">
         <p className="App-intro"> Live Commentary </p>
-        {Object.keys(this.data).map(key => (
-          <div>
-            <div> time: {key} </div> 
-            <div> : {this.data[key]} </div>
-          </div>
-        ))
+        <div className="structure">
+              {Object.keys(this.data).map(key => (
+                  <div key={key} className="content">
+                    <div className="circle"> {key} </div> 
+                    <div className="text"> {this.data[key]} </div>
+                  </div>
+                ))
+              }
+            <div className="line"/>
+        </div>
+        <style jsx>{`
+        .structure {
+            display: flex;
+            flex-direction: column;
+          }
+
+         .line {
+          background-color: blue;
+          height: 300px;
+          width: 30px;
         }
+
+        .content {
+          display: flex;
+          justify-content: space-between;
+        }
+        
+        .circle {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 50px;
+            width: 50px;
+            border-radius: 50px;
+            border: 3px solid;
+          }
+        
+        `
+        }
+
+        </style>
       </div>
     );
   }
