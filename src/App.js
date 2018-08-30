@@ -17,82 +17,71 @@ class App extends Component {
     return (
       <div >
           <h2 className= "title"> Live Commentary </h2>
-            <div className="structure">
-            <div className="line"/>
+          <div className= "container">
+            <div className = "line" />
                   {Object.keys(this.data).map(key => (
-                      <div key={key} className="content">
-                            <div className="circle-container">
-                              <div className="circle"> {key} </div> 
-                            </div>
+                      <div key={key} className="data-container" >
+                              <div className= "circle"> {key} </div> 
                           <div className="text"> {this.data[key]} </div>
                       </div>
                     ))
                   }
             </div>
+
         <style jsx>{`
-  
+
         .title{
-          margin: 50px 10px 10px 10px;
+          margin: 50px 10px 50px 20px;
           color: rgb(56, 71, 128);
           text-decoration: underline;
           font-size: 40px;
         }
 
-        .structure {
+          .container {
             display: flex;
             flex-direction: column;
-            height: 100vh;
-            margin: 10px;
-            top: 200px;
-          }
-
-         .structure ,.line{
-          position: absolute;
-         } 
-
-          .content {
+            height: 400px;
+            width: 400px;
+            margin: 0 10px 0 10px;
+        }
+          .data-container{
             display: flex;
             align-items: center;
-            margin-bottom: 10px;
+            margin: 0 0 20px 0;
           }
 
-         .line {
-          border-right: 5px solid blue;
-          box-sizing: border-box;
-          height: 100%;
-          width: 24px;
-          top:6px;
-        } 
+          .text {
+            box-shadow: 5px  5px  10px rgba(0,0,0,0.5);
+            background-color:  rgb(220, 223, 235);
+            color: rgb(56, 71, 128);
+            padding: 10px;
+            border-radius: 5px;
+          }
 
-        .text{
-          margin-left: 10px;
-          border-radius: 10px;
-          box-shadow: 5px  5px  10px rgba(0,0,0,0.5);
-          padding: 10px;
-          background-color:  rgb(220, 223, 235);
-          color: rgb(56, 71, 128);
-        }
-
-        .circle-container{
-          display: flex;
-          align-items: center;
-          justify-content: center;
-        }
-       
-        .circle {
-            margin: 0 10px 10px 0;
-            z-index: 1;
+          .circle{
             display: flex;
-            align-items: center;
             justify-content: center;
+            align-items: center;
+            flex: 0 0 30px; /* flex-grow, flex-shrink, flex-basis force it to go to specific space based on parent */
+            border-radius: 50%;
+            height: 30px;
             box-shadow: 3px  3px  10px rgba(0,0,0,0.5);
-            height: 40px;
-            width: 40px;
-            border-radius: 50px;
+            margin-right: 10px;
+            font-size: 13px;
             color: rgb(56, 71, 128);
             background-color: rgb(160, 175, 233);
           }
 
+          .line {
+            margin-top: 10px;
+            position: absolute; /* force it to go to specific space based on parent */
+            z-index: -1;
+            box-sizing: border-box; /* this behavier never allows, bp to be more than width*/
+            width: 18px;
+            border-right: solid 4px blue;
+            height: 100%;
+          }
+       
         `
         }
         </style>
